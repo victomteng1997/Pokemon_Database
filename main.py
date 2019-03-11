@@ -142,14 +142,14 @@ for index in Index:
 
 
     # Download Sprites
-    for key in sprites:
-        url = sprites[key]
-        response = requests.get(url, stream=True)
-        pic_name = '.\sprites\\'+ name + '_' + key + '.png'
-        print pic_name
-        with open(pic_name, 'wb') as out_file:
-            shutil.copyfileobj(response.raw, out_file)
-        del response
+    # for key in sprites:
+    #     url = sprites[key]
+    #     response = requests.get(url, stream=True)
+    #     pic_name = '.\sprites\\'+ name + '_' + key + '.png'
+    #     print pic_name
+    #     with open(pic_name, 'wb') as out_file:
+    #         shutil.copyfileobj(response.raw, out_file)
+    #     del response
 
     # Do SQLITE magic
 
@@ -162,7 +162,7 @@ for index in Index:
 
     table_name = 'Pokemon_combat_data'
     c.execute('''CREATE TABLE if not exists %s
-                                     (id real, name text, move text, hp real, attack real, defense real, special_attack real, special_defense real, speed real,  hp_effort real, attack_effort real, defense_effort real, special_attack_effort real, special_defense_effort real, speed_effort real)''' % table_name)
+                                     (id real, name text, move text, base_hp real, base_attack real, base_defense real, base_special_attack real, base_special_defense real, base_speed real,  hp_effort real, attack_effort real, defense_effort real, special_attack_effort real, special_defense_effort real, speed_effort real)''' % table_name)
     combat_data = [(id, name, json_move, hp, attack, defense, special_attack, special_defense, speed, hp_effort, attack_effort, defense_effort, special_attack_effort, special_defense_effort, speed_effort),]
     c.executemany('INSERT INTO Pokemon_combat_data VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)', combat_data)
     conn.commit()
