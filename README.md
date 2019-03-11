@@ -8,7 +8,7 @@ Still under development.
 
 # 精灵宝可梦数据库
 数据库源自API: https://pokeapi.co/
-pokemon.db文件中包含了已经生成完毕的sqlite数据库内容。
+pokemon.db文件中包含了已经生成完毕的sqlite数据库内容。宝可梦图片存放于sprites目录下。
 
 本项目仍在持续开发中。
 
